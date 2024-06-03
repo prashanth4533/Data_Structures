@@ -1,0 +1,22 @@
+def evaluate(expression):
+    stack=[]
+    operators=['+','-','*','/']
+
+    for item in expression:
+        if item not in operators:
+            stack.append(item)
+        else:
+            first=int(stack.pop())
+            second=int(stack.pop())
+            if item=='+':
+                stack.append(first+second)
+            elif item=='-':
+                stack.append(first-second)
+            elif item=='*':
+                stack.append(first*second)
+            else :
+                stack.append(first/second)
+        
+    return stack[-1]
+expression="35+4*"
+print(evaluate(expression))

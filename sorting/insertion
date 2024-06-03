@@ -1,0 +1,14 @@
+arr=[43,23,22,56,78,1,5,6]
+
+def insertion(arr):
+# Start from the first index because the element at index 0 is trivially sorted
+    for i in range(1, len(arr)):
+        c = arr[i]
+        j = i - 1
+        # Find the correct position for c by moving larger elements one position to the right
+        while j >= 0 and arr[j] > c:
+            arr[j + 1] = arr[j]
+            j -= 1
+        # Place c at the correct position (after the while loop, j is at the last position where arr[j] > c)
+        arr[j + 1] = c
+    return arr

@@ -1,0 +1,15 @@
+def isValid(s):
+    st = []
+    ma = {')': '(', '}': '{', ']': '['}
+
+    for char in s:
+        if char in ma: 
+            top = st.pop() if st else None
+            if top != ma[char]:
+                return False
+        else:  
+            st.append(char)
+
+    return len(st) == 0
+s = "()[]{}"
+print(isValid(s))

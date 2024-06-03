@@ -1,0 +1,27 @@
+
+def fib(n): #find the n element
+    if n <= 0:
+        return "Invalid input"
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+    
+print(fib(10))
+
+def fibonacci(n): #series
+    if n <= 0:
+        return "Invalid input"
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    else:
+        fib_sequence = fibonacci(n - 1)
+        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+        return fib_sequence
+
+result = fibonacci(10)
+print(result)  

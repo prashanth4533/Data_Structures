@@ -1,0 +1,45 @@
+class Hashmap:
+    def __init__(self):
+        self.size = 10
+        self.hashlist = [None] * self.size
+
+    def get_index(self, key):
+        return hash(key) % self.size
+
+    def __setitem__(self, key, value):
+        index = self.get_index(key)
+        if self.hashlist[index] is None:
+            self.hashlist[index] = [(key, value)]
+        else:
+            for i, (k, _) in enumerate(self.hashlist[index]):
+                if k == key:
+                    self.hashlist[index][i] = (key, value)
+                    break
+            else:
+                self.hashlist[index].append((key, value))
+
+    def __getitem__(self, key):
+        index = self.get_index(key)
+        if self.hashlist[index]:
+            for k, v in self.hashlist[index]:
+                if k == key:
+                    return v
+        return "Element not found"
+
+    def __delitem__(self, key):
+        index = self.get_index(key)
+        if self.hashlist[index]:
+            for i, (k, v) in enumerate(self.hashlist[index]):
+                if k == key:
+                    del self.hashlist[index][i]
+                    return
+        print("Element not found")
+
+
+dicti = Hashmap()
+dicti["name"] = "Prashanth"
+dicti["name"]="Prashanth1"
+dicti["age"] = "21"
+print(dicti["name"])  
+del dicti["age"]
+print(dicti["age"])  

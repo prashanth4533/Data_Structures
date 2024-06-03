@@ -1,0 +1,22 @@
+a="hello"
+a=['h','e','l','l','o']
+
+l=0 #using while
+r=len(a)-1
+while l<r:
+    a[l],a[r]=a[r],a[l]
+    l+=1
+    r-=1     
+print(a)
+
+arr=" "
+for i in a: #using for
+    arr=i+arr
+print(arr)  
+
+print(''.join(reversed(a))) #function
+
+print(a[::-1]) #slicing
+
+c=a.reverse()
+print(c)
